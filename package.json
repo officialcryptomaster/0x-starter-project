@@ -8,9 +8,10 @@
         "build": "cross-env tsc",
         "clean": "shx rm -rf lib",
         "download_snapshot": "cross-env-shell download --extract --strip 1 --out 0x_ganache_snapshot ${npm_package_config_snapshot_url}",
-        "ganache-cli": "cross-env ganache-cli --noVMErrorsOnRPCResponse --gasLimit 10000000  --db 0x_ganache_snapshot  -p 8545 --networkId 50 -m \"concert load couple harbor equip island argue ramp clarify fence smart topic\"",
+        "ganache-cli": "cross-env ganache-cli --gasLimit 10000000 --noVMErrorsOnRPCResponse --db 0x_ganache_snapshot  -p 8545 --networkId 50 -m \"concert load couple harbor equip island argue ramp clarify fence smart topic\"",
         "fake_sra_server": "cross-env yarn build && node ./lib/sra_server.js",
         "scenario:all": "cross-env yarn build && node ./lib/scenarios/all.js",
+        "scenario:dutch_auction": "cross-env yarn build && node ./lib/scenarios/dutch_auction.js",
         "scenario:fill_order_erc20": "cross-env yarn build && node ./lib/scenarios/fill_order_erc20.js",
         "scenario:fill_order_sra": "cross-env yarn build && node ./lib/scenarios/fill_order_sra.js",
         "scenario:fill_order_fees": "cross-env yarn build && node ./lib/scenarios/fill_order_fees.js",
@@ -25,13 +26,13 @@
     },
     "config": {
         "mnemonic": "concert load couple harbor equip island argue ramp clarify fence smart topic",
-        "snapshot_url": "https://s3.amazonaws.com/testrpc-shapshots/965d6098294beb22292090c461151274ee6f9a26.zip"
+        "snapshot_url": "http://ganache-snapshots.0x.org.s3.amazonaws.com/0x_ganache_snapshot-2.4.0.zip"
     },
     "author": "",
     "license": "Apache-2.0",
     "dependencies": {
-        "0x.js": "^2.0.0",
-        "@0x/abi-gen-wrappers": "^1.0.1",
+        "0x.js": "^3.0.0",
+        "@0x/abi-gen-wrappers": "^2.2.0",
         "@0x/connect": "^3.0.0",
         "@0x/contract-addresses": "^2.0.0",
         "@0x/contract-artifacts": "^1.0.1",
